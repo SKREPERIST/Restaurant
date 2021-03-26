@@ -1,16 +1,18 @@
 $(function () {
-
   new WOW().init();
 
-
-  $('.burger').on('click', function () {
-    $('.header__menu').slideToggle();
+  $(".burger").on("click", function () {
+    $(".header__menu").slideToggle();
   });
 
-  $('.intro__slider').slick();
+  let burg = document.querySelector(".burger");
+  burg.onclick = () => {
+    burg.classList.toggle("active");
+  };
 
+  $(".intro__slider").slick();
 
-  $('.popular__slider').slick({
+  $(".popular__slider").slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -18,14 +20,15 @@ $(function () {
     arrows: false,
     centerMode: true,
     variableWidth: true,
-    responsive: [{
+    responsive: [
+      {
         breakpoint: 1230,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
           variableWidth: false,
-          centerMode: false
-        }
+          centerMode: false,
+        },
       },
       {
         breakpoint: 850,
@@ -33,14 +36,12 @@ $(function () {
           slidesToShow: 1,
           slidesToScroll: 1,
           variableWidth: false,
-          centerMode: false
-        }
+          centerMode: false,
+        },
       },
-    ]
+    ],
   });
 
-
-  var mixer = mixitup('.choise__box');
+  var mixer = mixitup(".choise__box");
   // var mixer = mixitup('.gall__box');
-
 });
